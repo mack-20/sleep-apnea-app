@@ -7,8 +7,10 @@ import 'features/profiles/data/profile_model.dart';
 Future <void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Initialize Hive
   await Hive.initFlutter();
 
+  // Register Hive adapters for custom types
   if(!Hive.isAdapterRegistered(ProfileModelAdapter().typeId)){
     Hive.registerAdapter(ProfileModelAdapter());
   }
